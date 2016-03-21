@@ -1,0 +1,5 @@
+{
+	"ImportPath": "github.com/ZBoxApp/twilio",
+	"GoVersion": "go1.5",
+	"Deps": []
+}
