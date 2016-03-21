@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-const testSecret = "abvdefghijklmnopqrstuvwxyz01234567"
+const testSecret = "yd0BjPPRUL7rrDcZ2hKTdiCCkgBp55t6"
 
 type testStruct struct {
 	alg      string

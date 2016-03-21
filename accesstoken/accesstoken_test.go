@@ -5,21 +5,24 @@ import (
 	"testing"
 )
 
-const testSecret = "abvdefghijklmnopqrstuvwxyz01234567"
+const accoutSid = "AC556823c3d28ac704df6239be0b0423fb"
+const testKey = "SK792fba4a87a0b0f77b1c74fd21297664"
+const testSecret = "ZJYabbDch05NwTMeMvlOuJUGd6jWpr0H"
+const videoSid = "VSd8fde6c50a5165e1077bdada30ef0008"
 
 // Generate a token and verify the signature (HS256)
 func TestJWTToken(t *testing.T) {
 
-	token := New("accountSid", "apiKey", testSecret)
+	token := New(accoutSid, testKey, testSecret)
 
 	token.Identity = "TestAccount"
 
-	token.nbf = 16810232
+	//token.nbf = 16810232
 
-	videoGrant := NewConversationsGrant("videoSid")
+	videoGrant := NewConversationsGrant(videoSid)
 	token.AddGrant(videoGrant)
 
-	signed, err := token.ToJWT(jwt.HS256)
+	signed, err := token.ToJWT(DefaultAlgorithm)
 
 	if err != nil {
 		t.Errorf("token.ToJWT Failed: %v", err)
