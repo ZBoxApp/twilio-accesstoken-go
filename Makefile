@@ -12,7 +12,7 @@ test: | gofmt go-test
 
 gofmt:
 	@echo GOFMT
-	$(eval GOFMT_OUTPUT := $(shell gofmt -d -s ./ jwt/ 2>&1))
+	$(eval GOFMT_OUTPUT := $(shell gofmt -d -s access*.go grant.go jwt/ 2>&1))
 	@echo "$(GOFMT_OUTPUT)"
 	@if [ ! "$(GOFMT_OUTPUT)" ]; then \
 		echo "gofmt sucess"; \
