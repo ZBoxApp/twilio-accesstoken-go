@@ -78,3 +78,23 @@ func (t *ConversationsGrant) toPayload() map[string]interface{} {
 func (t *ConversationsGrant) key() string {
 	return "rtc"
 }
+
+type voiceGrant struct {
+	sid string
+}
+
+func NewVoiceGrant(sid string) *voiceGrant {
+	return &voiceGrant{sid: sid}
+}
+
+func (t *voiceGrant) key() string {
+	return "voice"
+}
+
+func (g *voiceGrant) toPayload() map[string]interface{} {
+	return map[string]interface{}{
+		"outgoing": map[string]interface{}{
+			"application_sid": g.sid,
+		},
+	}
+}
