@@ -78,3 +78,22 @@ func (t *ConversationsGrant) toPayload() map[string]interface{} {
 func (t *ConversationsGrant) key() string {
 	return "rtc"
 }
+
+func NewVideoGrant(room string) Grant {
+	return &videoGrant{room: room}
+}
+
+type videoGrant struct {
+	room string
+}
+
+func (videoGrant) key() string {
+	return "video"
+}
+
+func (v *videoGrant) toPayload() map[string]interface{} {
+	if len(v.room) > 0 {
+		return map[string]interface{}{"room": v.room}
+	}
+	return make(map[string]interface{})
+}
