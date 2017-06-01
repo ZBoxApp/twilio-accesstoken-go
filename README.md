@@ -9,9 +9,25 @@ This is basically a port of the AccessToken portion of: https://github.com/twili
 
 ### Usage
 
-Install the package
+- Install the package
 
+```
 go get github.com/ZBoxApp/twilio-accesstoken-go
+```
+
+- Grant access token to conversation:
+
+```go
+	grant := accesstoken.NewConversationsGrant(os.Getenv("TW_VIDEO_SID"))
+    	myToken.AddGrant(grant)
+```
+
+- Grant access token to video API
+
+```go 
+	grant := accesstoken.NewVideoGrant(room) //Unique room name
+	myToken.AddGrant((grant)
+```
 
 ### Sample
 Sample app using credentials stored in your env
